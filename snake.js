@@ -83,7 +83,7 @@ function snake() {
     else if(dir === diraction.SPACE){
       this.xSpeed = 0;
       this.ySpeed = 0;
-      this.dir = diraction.SPACE;
+      this.dir = diraction.STOP;
     }
   }
     
