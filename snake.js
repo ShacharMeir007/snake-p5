@@ -30,17 +30,24 @@ function snake() {
     
     
     var len = this.tail.length;
-    for(var i = 0; i<len-1;i++){
-      this.tail[i] = this.tail[i+1] 
-      //console.log(tail.length)
+      if(this.dir != diraction.STOP){
+      for(var i = 0; i<len-1;i++){
+        this.tail[i] = this.tail[i+1] 
+        //console.log(tail.length)
+      }
+      this.tail[len-1] = [this.x, this.y] 
     }
-    this.tail[len-1] = [this.x, this.y] 
-    
     this.x = this.x + this.xSpeed * scl;
     this.y = this.y + this.ySpeed * scl;
-    
+    var x = this.x
+    var y = this.y
     this.x = constrain(this.x,0,width-scl)
     this.y = constrain(this.y,0,height-scl)
+    
+    if(this.x != x || this.y != y) {
+      return true
+    }
+    return false
   }
   this.show = function(){
     fill(110);

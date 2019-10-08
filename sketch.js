@@ -14,8 +14,10 @@ function setup() {
 function draw() {
   background(70);
   b.eat(f)
-  b.update();
-  if(b.die()) {
+  if(b.update()) {
+    b = new snake();
+  }
+  if(b.die() && b.dir != diraction.STOP) {
     b = new snake();
   }
   b.show();
